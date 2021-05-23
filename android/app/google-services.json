@@ -14,6 +14,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "190000929043-0g4v9l8585eaf5uk9dctfgk6jrab4a6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coupon",
+            "certificate_hash": "224a4884770ece38fb17e53dcaf93de98de4ad52"
+          }
+        },
+        {
+          "client_id": "190000929043-51laptnrk9fdhsmvichlfavl8mgl1iog.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coupon",
+            "certificate_hash": "74996fc66d7e18fe7a0ad8a7a0796fa7210ca08d"
+          }
+        },
+        {
           "client_id": "190000929043-09sgr301r5ne7b2vlont6vc5tnpvq6bd.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -42,6 +58,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "190000929043-6ggvhu5699htogc3be3iq8bo3m24bt8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.couponsadmin",
+            "certificate_hash": "6aec1241e6d92d65d666d60711ae4d2ff5c25958"
+          }
+        },
         {
           "client_id": "190000929043-qhnuv29end5an9lol5pcblhljbu8553m.apps.googleusercontent.com",
           "client_type": 1,

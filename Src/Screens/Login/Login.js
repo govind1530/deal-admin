@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,Alert } from 'react-native';
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -12,8 +12,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Login = ({navigation}) => {
   const [fcmToken, setFcmToken] = React.useState(null);
   const [os,setOs]  = React.useState('')
-  React.useEffect(() => {
-
+  React.useEffect(async ()  => {
+    const values = await AsyncStorage.getItem("user");
+    if(values === 'Login'){
+      navigation.reset({
+        index: 0,
+        routes: [
+          { name: 'Home' },
+        ],
+      })
+      return true;
+    }
     PushNotification.configure({
       // (optional) Called when Token is generated (iOS and Android)
       onRegister: function (token) {
@@ -103,7 +112,7 @@ const Login = ({navigation}) => {
                     photo: result?.user?.photo,
                   };
                   
-                  //GoogleSignin.signOut()
+                  GoogleSignin.signOut()
                    firestore()
                      .collection('Admin')
                      .add({
@@ -124,7 +133,7 @@ const Login = ({navigation}) => {
                      }).catch((err) => {
                        console.log('error while adding admin in firestore', err);
                      })
-                     
+                  storeData(userData)
                  
                 }).catch((error) => {
                     console.log(error, "error")
@@ -150,8 +159,16 @@ const Login = ({navigation}) => {
 const storeData = async (value) => {
   console.log('user data',value)
   try {
-    await AsyncStorage.setItem("user", value)
-     navigation.navigate('Home');
+    await AsyncStorage.setItem('user', 'Login')
+    const values = await AsyncStorage.getItem("user");
+    console.log('async data',values);
+    navigation.reset({
+      index: 0,
+      routes: [
+        { name: 'Home' },
+      ],
+    })
+     //navigation.navigate('Home');
   } catch (e) {
     console.log('error',e)
     // saving error
